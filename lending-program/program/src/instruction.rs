@@ -1,3 +1,4 @@
+
 //! Instruction types
 
 use crate::{
@@ -334,7 +335,8 @@ impl LendingInstruction {
     /// Packs a [LendingInstruction](enum.LendingInstruction.html) into a byte buffer.
     pub fn pack(&self) -> Vec<u8> {
         let mut buf = Vec::with_capacity(size_of::<Self>());
-        match *self {
+        match self {
+
             Self::InitLendingMarket { market_owner } => {
                 buf.push(0);
                 buf.extend_from_slice(market_owner.as_ref());
